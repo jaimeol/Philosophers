@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   create_threads.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 18:06:19 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/01 12:27:09 by jolivare         ###   ########.fr       */
+/*   Created: 2024/06/27 18:32:53 by jolivare          #+#    #+#             */
+/*   Updated: 2024/07/01 12:00:18 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-static int    arg_error(void)
+int	create_threads(t_table *table)
 {
-	printf("Incorrect usage.\nExample: ./Philosophers [philo number] ");
-	printf("[time to die] [time to eat] [time to sleep] ");
-	printf("[number of times philo must eat]\n");
-	printf("\033[0;31mLast Parameter is optional\033[0m\n");
-	return (1);
-}
+	int	i;
 
-int main(int argc, char **argv)
-{
-	if (argc != 5 && argc != 6)
-		return(arg_error());
-	printf("Bien escrito! %s\n", argv[0]);
+	i = 0;
+	table->philos = malloc(table->philo_number * sizeof(t_philo));
+	if (!table->philos)
+		return (1);
+	while (i < table->philo_number)
+	{
+		table->philos[i].id = i + 1;
+		table->philos[i].table = table;
+		table->philos[i].eat_count = 0;
+		i++;
+	}
+	return (0);
 }
