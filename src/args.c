@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 12:09:37 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/01 16:46:35 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/01 16:56:36 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,7 @@ int	read_args(t_table *table, int argc, char **argv)
 		return (0);
 	}
 	table->nb_to_eat = ft_atoi(argv[5]);
-	return (1);
+	return (0);
 }
+
+
