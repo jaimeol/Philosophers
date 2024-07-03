@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:06:48 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/02 15:16:21 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/03 17:27:29 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,10 @@ struct s_table
 
 static int	arg_error(void);
 int			read_args(t_table *table, int argc, char **argv);
+
+int			only_one(t_philo *philo);
+int			normal_action(t_philo *philo);
+int			monitor_action(t_philo *philo);
 
 
 
