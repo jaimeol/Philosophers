@@ -6,13 +6,13 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:06:19 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/01 12:27:09 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/06 12:38:37 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-static int    arg_error(void)
+int	arg_error(void)
 {
 	printf("Incorrect usage.\nExample: ./Philosophers [philo number] ");
 	printf("[time to die] [time to eat] [time to sleep] ");
@@ -21,9 +21,11 @@ static int    arg_error(void)
 	return (1);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	if (argc != 5 && argc != 6)
-		return(arg_error());
-	printf("Bien escrito! %s\n", argv[0]);
+		return (arg_error());
+	struct timeval start;
+	printf("%s\n", argv[0]);
+	gettimeofday(&start, NULL);
 }

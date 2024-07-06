@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 18:32:53 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/03 15:56:42 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/06 15:42:45 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,8 @@ int	create_mutex(t_table *table)
 		}
 		i++;
 	}
-	return (0);
-}
-
-int	create_mutex_print(t_table *table)
-{
-	if (pthread_mutex_init(&table->print_mutex, NULL))
-		return (1);
+	pthread_mutex_init(&table->monitor_mutex, NULL);
+	pthread_mutex_init(&table->print_mutex, NULL);
 	return (0);
 }
 

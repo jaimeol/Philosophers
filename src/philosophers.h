@@ -6,18 +6,28 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:06:48 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/03 17:27:29 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/06 17:47:55 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILOSOPHERS_H
 # define PHILOSOPHERS_H
 
+# include <unistd.h>
 # include <pthread.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <sys/time.h>
 # include <pthread.h>
+
+typedef enum s_action
+{
+	EATING,
+	SLEEPING,
+	THINKING,
+	FORK,
+	DEAD
+} t_action;
 
 typedef struct s_table t_table;
 
@@ -26,6 +36,7 @@ typedef struct s_philo
 	pthread_t		thread;
 	int				id;
 	int				eat_count;
+	int				dead;
 	size_t			last_meal;
 	pthread_mutex_t	internal_mutex;
 	pthread_mutex_t	*left_fork;
@@ -35,36 +46,44 @@ typedef struct s_philo
 
 struct s_table
 {
-	/* Parametres */
 	int				philo_number;
-	int				time_to_die;
-	int				time_to_eat;
-	int				time_to_sleep;
+	size_t			time_to_die;
+	size_t			time_to_eat;
+	size_t			time_to_sleep;
 	int				nb_to_eat;
-
-	/* Array of forks */
 	pthread_mutex_t	*forks;	
-
-	/* Reference to simulation flags */
 	size_t			start_time;
-	int				dead_flag;
-	/* Print mutex */
+	int				end;
+	int				finish;
+	pthread_mutex_t	monitor_mutex;
 	pthread_mutex_t	print_mutex;
-
-	/* Philosophers and monitor */
 	t_philo			*philos;
 	pthread_t		monitor;
 };
 
-static int	arg_error(void);
+int			arg_error(void);
 int			read_args(t_table *table, int argc, char **argv);
 
-int			only_one(t_philo *philo);
-int			normal_action(t_philo *philo);
-int			monitor_action(t_philo *philo);
+int			create_threads(t_table *table);
+int			create_mutex(t_table *table);
+int			init_threads(t_table *table);
+void		assign_forks(t_table *table);
 
+void		*only_one(void *arg);
+void		*normal_action(void *arg);
+void		*monitor_action(void *arg);
 
+size_t		get_moment(void);
+size_t		get_time_diff(struct timeval start, struct timeval end);
+void		print_action(t_philo *philo, t_action action);
 
+int			eat(t_philo *philo);
+void		sleep_action(t_philo *philo);
+void		think(t_philo *philo);
+
+int			dead(t_philo *philo);
+int			dead_control(t_table *table, int i);
+int			meals_completed(t_philo *philo);
 long int	ft_atoi(const char *str);
 
 #endif
