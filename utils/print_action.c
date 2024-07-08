@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_action.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
+/*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:39:11 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/08 12:18:49 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/09 01:19:24 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ void	print_action(t_philo *philo, t_action action)
 	else if (action == FORK && !philo->dead)
 		printf("[%ld] [%d] has taken fork\n", moment, philo->id);
 	else
-		printf("[%ld] [%d] died\n", moment, philo->id);
+		printf("\033[0;31m[%ld] [%d] died\033[0m\n", moment, philo->id);
 	pthread_mutex_unlock(&philo->table->print_mutex);
 }
