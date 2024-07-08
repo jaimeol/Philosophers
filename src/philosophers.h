@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:06:48 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/06 17:47:55 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/08 15:34:49 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ struct s_table
 	size_t			time_to_eat;
 	size_t			time_to_sleep;
 	int				nb_to_eat;
-	pthread_mutex_t	*forks;	
+	pthread_mutex_t	*forks;
 	size_t			start_time;
 	int				end;
 	int				finish;
@@ -63,11 +63,13 @@ struct s_table
 
 int			arg_error(void);
 int			read_args(t_table *table, int argc, char **argv);
+int			init_data(t_table *table, int argc, char **argv);
 
 int			create_threads(t_table *table);
 int			create_mutex(t_table *table);
 int			init_threads(t_table *table);
 void		assign_forks(t_table *table);
+void		wait_threads(t_table *table);
 
 void		*only_one(void *arg);
 void		*normal_action(void *arg);
@@ -75,6 +77,8 @@ void		*monitor_action(void *arg);
 
 size_t		get_moment(void);
 size_t		get_time_diff(struct timeval start, struct timeval end);
+void		assign_start(t_table *table);
+void		ft_usleep(size_t time);
 void		print_action(t_philo *philo, t_action action);
 
 int			eat(t_philo *philo);

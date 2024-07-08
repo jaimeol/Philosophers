@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 15:34:00 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/06 17:44:06 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/08 15:33:25 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*only_one(void *arg)
 	pthread_mutex_unlock(&philo->internal_mutex);
 	print_action(philo, FORK);
 	while (!dead(philo))
-		usleep(500);
+		usleep(100);
 	return (NULL);
 }
 
@@ -35,15 +35,15 @@ void	*normal_action(void *arg)
 	philo->last_meal = get_moment();
 	pthread_mutex_unlock(&philo->internal_mutex);
 	if (philo->id % 2)
-		usleep(philo->table->time_to_eat);
+		ft_usleep(philo->table->time_to_eat);
 	while (!dead(philo))
 	{
 		if(eat(philo))
 			break ;
-		/*if (meals_completed(philo) || dead(philo))
-			break*/
+		if (meals_completed(philo) || dead(philo))
+			break ;
 		print_action(philo, SLEEPING);
-		usleep(philo->table->time_to_sleep);
+		ft_usleep(philo->table->time_to_sleep);
 		if(dead(philo))
 			break ;
 		think(philo);
@@ -60,13 +60,14 @@ void	*monitor_action(void *arg)
 
 	flag = 1;
 	table = (t_table *)arg;
+	satisfied = 0;
 	while (flag)
 	{
 		i = 0;
 		satisfied = 0;
 		while (flag && i < table->philo_number)
 		{
-			satisfied += meals_completed(table->philos[i]);
+			satisfied += meals_completed(&table->philos[i]);
 			if (dead_control(table, i))
 			{
 				pthread_mutex_lock(&table->monitor_mutex);

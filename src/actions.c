@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 17:29:13 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/06 17:34:33 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/08 15:46:03 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ int	eat(t_philo *philo)
 		return (1);
 	}
 	print_action(philo, FORK);
+	print_action(philo, EATING);
 	pthread_mutex_lock(&philo->internal_mutex);
 	philo->eat_count++;
-	print_action(philo, EATING);
-	usleep(philo->table->time_to_eat);
+	ft_usleep(philo->table->time_to_eat);
 	philo->last_meal = get_moment();
 	pthread_mutex_unlock(&philo->internal_mutex);
 	unlock_forks(philo->left_fork, philo->right_fork);
@@ -49,10 +49,24 @@ int	eat(t_philo *philo)
 void	sleep_action(t_philo *philo)
 {
 	print_action(philo, SLEEPING);
-	usleep(philo->table->time_to_sleep);
+	ft_usleep(philo->table->time_to_sleep);
 }
 
 void	think(t_philo *philo)
 {
 	print_action(philo, THINKING);
+}
+
+int	meals_completed(t_philo *philo)
+{
+	int	meals;
+
+	if (philo->table->nb_to_eat == -1)
+		return (0);
+	pthread_mutex_lock(&philo->internal_mutex);
+	meals = philo->eat_count;
+	pthread_mutex_unlock(&philo->internal_mutex);
+	if (meals == philo->table->nb_to_eat)
+		return (1);
+	return (0);
 }

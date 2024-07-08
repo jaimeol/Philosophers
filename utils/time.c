@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:08:37 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/04 15:34:30 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/08 15:32:23 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,14 @@ void	assign_start(t_table *table)
 	
 	gettimeofday(&start, NULL);
 	table->start_time = (start.tv_sec * 1000) + (start.tv_usec / 1000);
+}
+
+void	ft_usleep(size_t time)
+{
+	size_t	start;
+
+	start = get_moment();
+	// printf("entra en usleep\n");
+	while(get_moment() - start < time)
+		usleep(200);
 }

@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:06:19 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/06 12:38:37 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/08 12:38:44 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,20 @@ int	arg_error(void)
 
 int	main(int argc, char **argv)
 {
+	t_table table;
+
 	if (argc != 5 && argc != 6)
 		return (arg_error());
-	struct timeval start;
-	printf("%s\n", argv[0]);
-	gettimeofday(&start, NULL);
+	if (init_data(&table, argc, argv))
+	{
+		printf("Error en init_data\n");
+		return (1);
+	}
+	if (init_threads(&table))
+	{
+		printf("Error en init_threads\n");
+		return (1);
+	}
+	wait_threads(&table);
+	return (0);
 }

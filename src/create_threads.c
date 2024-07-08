@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 18:32:53 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/06 15:42:45 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/08 15:47:15 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	init_threads(t_table *table)
 		}
 		else
 		{
-			if (pthread_create(&table->philos[i].thread, NULL, normal_action, table->philos))
+			if (pthread_create(&table->philos[i].thread, NULL, normal_action, &table->philos[i]))
 				return (1);
 		}
 		i++;
@@ -92,8 +92,24 @@ void	assign_forks(t_table *table)
 	{
 		j = (i + 1) % table->philo_number;
 		table->philos[i].left_fork = &table->forks[i];
-		table->philos[j].right_fork = &table->forks[j];
+		table->philos[i].right_fork = &table->forks[j];
 		i++;
 	}
 	return ;
+}
+
+void	wait_threads(t_table *table)
+{
+	int i;
+
+	i = 0;
+	while (i < table->philo_number)
+	{
+		pthread_join(table->philos[i].thread, NULL);
+		i++;
+	}
+	pthread_mutex_lock(&table->monitor_mutex);
+	table->finish = 1;
+	pthread_mutex_unlock(&table->monitor_mutex);
+	pthread_join(table->monitor, NULL);
 }
