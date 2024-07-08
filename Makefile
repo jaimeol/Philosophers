@@ -6,7 +6,7 @@
 #    By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 18:02:03 by jolivare          #+#    #+#              #
-#    Updated: 2024/07/06 12:39:05 by jolivare         ###   ########.fr        #
+#    Updated: 2024/07/08 15:53:52 by jolivare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SOURCES = src/main.c src/actions.c src/args.c src/dead.c src/create_threads.c sr
 
 OBJECTS = $(SOURCES:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 REMOVE = rm -f
 CC = cc
 

@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 12:52:01 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/06 17:42:30 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/08 16:36:14 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,16 @@ int	dead_control(t_table *table, int i)
 		return (1);
 	pthread_mutex_unlock(&table->philos[i].internal_mutex);
 	return (0);
+}
+
+int	is_dead(t_philo *philo)
+{
+	int	end;
+
+	pthread_mutex_lock(&philo->table->monitor_mutex);
+	end = philo->table->end;
+	pthread_mutex_unlock(&philo->table->monitor_mutex);
+	if (end)
+		return (1);
+	
 }

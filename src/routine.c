@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 15:34:00 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/08 15:33:25 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/08 16:29:48 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	*monitor_action(void *arg)
 
 	flag = 1;
 	table = (t_table *)arg;
-	satisfied = 0;
 	while (flag)
 	{
 		i = 0;

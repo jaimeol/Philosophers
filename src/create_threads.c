@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 18:32:53 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/08 15:47:15 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/08 16:00:03 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	create_threads(t_table *table)
 	table->philos = malloc(table->philo_number * sizeof(t_philo));
 	if (!table->philos)
 		return (1);
+	memset(table->philos, 0, sizeof(t_philo));
 	while (i < table->philo_number)
 	{
 		table->philos[i].id = i + 1;
@@ -88,7 +89,7 @@ void	assign_forks(t_table *table)
 	int	j;
 
 	i = 0;
-	while(i <= table->philo_number)
+	while(i < table->philo_number)
 	{
 		j = (i + 1) % table->philo_number;
 		table->philos[i].left_fork = &table->forks[i];

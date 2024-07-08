@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:08:37 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/08 15:32:23 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/08 16:27:42 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ size_t	get_moment(void)
 void	assign_start(t_table *table)
 {
 	struct timeval	start;
-	
+
 	gettimeofday(&start, NULL);
 	table->start_time = (start.tv_sec * 1000) + (start.tv_usec / 1000);
 }

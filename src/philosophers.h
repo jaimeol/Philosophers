@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:06:48 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/08 15:34:49 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/08 16:26:11 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdlib.h>
 # include <sys/time.h>
 # include <pthread.h>
+# include <string.h>
 
 typedef enum s_action
 {
@@ -54,7 +55,7 @@ struct s_table
 	pthread_mutex_t	*forks;
 	size_t			start_time;
 	int				end;
-	int				finish;
+	int				start;	
 	pthread_mutex_t	monitor_mutex;
 	pthread_mutex_t	print_mutex;
 	t_philo			*philos;
