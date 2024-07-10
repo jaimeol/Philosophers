@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 18:32:53 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/08 16:00:03 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/09 10:49:39 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,5 @@ void	wait_threads(t_table *table)
 		pthread_join(table->philos[i].thread, NULL);
 		i++;
 	}
-	pthread_mutex_lock(&table->monitor_mutex);
-	table->finish = 1;
-	pthread_mutex_unlock(&table->monitor_mutex);
 	pthread_join(table->monitor, NULL);
 }

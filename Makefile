@@ -6,11 +6,11 @@
 #    By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 18:02:03 by jolivare          #+#    #+#              #
-#    Updated: 2024/07/08 15:53:52 by jolivare         ###   ########.fr        #
+#    Updated: 2024/07/09 09:14:50 by jolivare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = philosophers
+NAME = philo
 
 SOURCES = src/main.c src/actions.c src/args.c src/dead.c src/create_threads.c src/routine.c \
 			utils/ft_atoi.c utils/print_action.c utils/time.c

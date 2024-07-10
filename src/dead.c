@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 12:52:01 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/08 16:36:14 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/10 17:18:00 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ int	dead(t_philo *philo)
 
 int	dead_control(t_table *table, int i)
 {
+	int dead;
 	pthread_mutex_lock(&table->philos[i].internal_mutex);
-	if (table->philos[i].dead)
-		return (1);
+	dead = table->philos[i].dead;
 	pthread_mutex_unlock(&table->philos[i].internal_mutex);
-	return (0);
+	return (dead);
 }
 
 int	is_dead(t_philo *philo)
@@ -43,5 +43,21 @@ int	is_dead(t_philo *philo)
 	pthread_mutex_unlock(&philo->table->monitor_mutex);
 	if (end)
 		return (1);
-	
+	return (0);
+}
+
+void	set_end(t_table *table)
+{
+	pthread_mutex_lock(&table->monitor_mutex);
+	table->end = 1;
+	pthread_mutex_unlock(&table->monitor_mutex);
+}
+
+int	all_meals_done(int	meals, t_table *table)
+{
+	if (table->nb_to_eat == -1)
+		return (0);
+	if (meals == table->nb_to_eat)
+		return (1);
+	return (1);
 }
