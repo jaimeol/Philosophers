@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 18:32:53 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/09 10:49:39 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/11 16:50:38 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	create_threads(t_table *table)
 		table->philos[i].id = i + 1;
 		table->philos[i].table = table;
 		table->philos[i].eat_count = 0;
+		table->end = 0;
 		if (pthread_mutex_init(&table->philos[i].internal_mutex, NULL))
 		{
 			while (--i >= 0)

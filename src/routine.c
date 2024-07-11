@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 15:34:00 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/10 17:23:39 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/11 16:51:55 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void	*normal_action(void *arg)
 	pthread_mutex_unlock(&philo->internal_mutex);
 	if (philo->id % 2)
 		ft_usleep(philo->table->time_to_eat);
-	while (!philo->dead)
+		
+	while (!is_dead(philo) && !dead(philo))
 	{
 		if(eat(philo))
 			break ;
@@ -44,7 +45,7 @@ void	*normal_action(void *arg)
 			break ;
 		print_action(philo, SLEEPING);
 		ft_usleep(philo->table->time_to_sleep);
-		if(dead(philo))
+		if(is_dead(philo) || dead(philo))
 			break ;
 		think(philo);
 	}
@@ -69,7 +70,6 @@ void	*monitor_action(void *arg)
 			satisfied += meals_completed(&table->philos[i]);
 			if (dead_control(table, i))
 			{
-				printf ("entra\n");
 				set_end(table);
 				flag = 0;
 			}

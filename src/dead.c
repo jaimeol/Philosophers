@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 12:52:01 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/10 17:18:00 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/11 16:51:08 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,7 @@ int	is_dead(t_philo *philo)
 	pthread_mutex_lock(&philo->table->monitor_mutex);
 	end = philo->table->end;
 	pthread_mutex_unlock(&philo->table->monitor_mutex);
-	if (end)
-		return (1);
-	return (0);
+	return (end);
 }
 
 void	set_end(t_table *table)

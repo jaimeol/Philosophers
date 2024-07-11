@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:06:48 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/10 17:18:28 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/11 16:42:30 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void		think(t_philo *philo);
 
 int			dead(t_philo *philo);
 int			dead_control(t_table *table, int i);
+int			is_dead(t_philo *philo);
 void		set_end(t_table *table);
 int			meals_completed(t_philo *philo);
 int			all_meals_done(int	meals, t_table *table);

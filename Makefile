@@ -6,7 +6,7 @@
 #    By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 18:02:03 by jolivare          #+#    #+#              #
-#    Updated: 2024/07/09 09:14:50 by jolivare         ###   ########.fr        #
+#    Updated: 2024/07/11 16:02:39 by jolivare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ REMOVE = rm -f
 CC = cc
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 	
 all: $(NAME)
 
@@ -34,8 +34,10 @@ clean:
 
 fclean: clean
 	$(REMOVE) $(NAME)
+#	@echo "All files removed"
 
 re: fclean all
 
+c: all clean
 
 .PHONY: all clean fclean re

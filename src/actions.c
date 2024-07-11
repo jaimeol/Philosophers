@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 17:29:13 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/08 15:46:03 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/11 16:55:31 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,5 @@ int	meals_completed(t_philo *philo)
 	pthread_mutex_lock(&philo->internal_mutex);
 	meals = philo->eat_count;
 	pthread_mutex_unlock(&philo->internal_mutex);
-	if (meals == philo->table->nb_to_eat)
-		return (1);
-	return (0);
+	return (meals == philo->table->nb_to_eat);
 }
