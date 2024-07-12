@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 15:34:00 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/11 16:51:55 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/12 11:43:49 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	*normal_action(void *arg)
 	pthread_mutex_unlock(&philo->internal_mutex);
 	if (philo->id % 2)
 		ft_usleep(philo->table->time_to_eat);
-		
 	while (!is_dead(philo) && !dead(philo))
 	{
 		if(eat(philo))
