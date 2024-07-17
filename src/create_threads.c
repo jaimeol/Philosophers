@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 18:32:53 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/17 10:37:02 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/17 11:32:00 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	create_threads(t_table *table)
 int	create_mutex(t_table *table)
 {
 	int	i;
-	
+
 	i = 0;
 	table->forks = malloc(table->philo_number * sizeof(pthread_mutex_t));
 	if (!table->forks)
@@ -67,18 +67,20 @@ int	create_mutex(t_table *table)
 int	init_threads(t_table *table)
 {
 	int	i;
-	
+
 	i = 0;
 	while (i < table->philo_number)
 	{
 		if (table->philo_number == 1)
 		{
-			if (pthread_create(&table->philos[i].thread, NULL, only_one, table->philos))
+			if (pthread_create(&table->philos[i].thread, \
+				NULL, only_one, table->philos))
 				return (1);
 		}
 		else
 		{
-			if (pthread_create(&table->philos[i].thread, NULL, normal_action, &table->philos[i]))
+			if (pthread_create(&table->philos[i].thread, NULL, \
+				normal_action, &table->philos[i]))
 				return (1);
 		}
 		i++;
@@ -93,7 +95,7 @@ void	assign_forks(t_table *table)
 	int	j;
 
 	i = 0;
-	while(i < table->philo_number)
+	while (i < table->philo_number)
 	{
 		j = (i + 1) % table->philo_number;
 		table->philos[i].left_fork = &table->forks[i];
@@ -105,7 +107,7 @@ void	assign_forks(t_table *table)
 
 void	wait_threads(t_table *table)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < table->philo_number)
