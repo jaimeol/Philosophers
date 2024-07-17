@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 12:52:01 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/17 11:12:58 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/17 16:22:31 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,5 @@ void	set_end(t_table *table)
 
 int	all_meals_done(int	meals, t_table *table)
 {
-	if (table->nb_to_eat == -1)
-		return (0);
-	if (meals == table->nb_to_eat)
-		return (1);
-	return (1);
+	return (meals == table->philo_number);
 }
