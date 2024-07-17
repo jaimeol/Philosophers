@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:08:37 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/17 11:37:49 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/15 11:30:03 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ size_t	get_moment(void)
 	struct timeval	moment;
 
 	gettimeofday(&moment, NULL);
-	return ((moment.tv_sec * 1000) + (moment.tv_usec / 1000));
+	return ((moment.tv_sec * 1000) + (moment.tv_usec / 1000)); 
 }
 
 void	assign_start(t_table *table)
@@ -46,6 +46,6 @@ void	ft_usleep(size_t time)
 	size_t	start;
 
 	start = get_moment();
-	while (get_moment() - start < time)
+	while(get_moment() - start < time)
 		usleep(200);
 }

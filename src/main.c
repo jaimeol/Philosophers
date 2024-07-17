@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:06:19 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/17 11:30:34 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/17 10:28:20 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@ int	arg_error(void)
 	printf("\033[0;31mLast Parameter is optional\033[0m\n");
 	return (1);
 }
-
 void	wait_start(t_table *table)
 {
 	int	start;
-
+	
 	start = 0;
 	while (1)
 	{
@@ -32,13 +31,13 @@ void	wait_start(t_table *table)
 		start = table->start;
 		pthread_mutex_lock(&table->start_mutex);
 		if (start)
-			break ;
+			break;
 	}
 }
 
 int	main(int argc, char **argv)
 {
-	t_table	table;
+	t_table table;
 
 	if (argc != 5 && argc != 6)
 		return (arg_error());
