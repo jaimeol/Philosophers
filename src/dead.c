@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 12:52:01 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/12 11:38:39 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/17 11:12:58 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 
 int	dead(t_philo *philo)
 {
-	//printf("%ld id ==> [%d] ultima comida\n", get_moment() - philo->last_meal, philo->id);
-	if (get_moment() - philo->last_meal > philo->table->time_to_die)
+	if (get_moment() - philo->last_meal >= philo->table->time_to_die)
 	{
 		pthread_mutex_lock(&philo->internal_mutex);
 		philo->dead = 1;
 		pthread_mutex_unlock(&philo->internal_mutex);
-		print_action(philo, DEAD);
 		return (1);
 	}
 	return (0);

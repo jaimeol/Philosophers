@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:06:48 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/11 16:42:30 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/17 11:21:49 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ struct s_table
 	int				start;	
 	pthread_mutex_t	monitor_mutex;
 	pthread_mutex_t	print_mutex;
+	pthread_mutex_t	start_mutex;
 	t_philo			*philos;
 	pthread_t		monitor;
 };
@@ -71,6 +72,7 @@ int			create_mutex(t_table *table);
 int			init_threads(t_table *table);
 void		assign_forks(t_table *table);
 void		wait_threads(t_table *table);
+void		wait_start(t_table *table);
 
 void		*only_one(void *arg);
 void		*normal_action(void *arg);
@@ -80,11 +82,15 @@ size_t		get_moment(void);
 size_t		get_time_diff(struct timeval start, struct timeval end);
 void		assign_start(t_table *table);
 void		ft_usleep(size_t time);
+size_t		wait_min(t_philo *philo);
 void		print_action(t_philo *philo, t_action action);
 
 int			eat(t_philo *philo);
 void		sleep_action(t_philo *philo);
 void		think(t_philo *philo);
+
+void		delete_mutex(t_table *table);
+void		free_data(t_table *table);
 
 int			dead(t_philo *philo);
 int			dead_control(t_table *table, int i);

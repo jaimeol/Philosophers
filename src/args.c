@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 12:09:37 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/08 12:27:34 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/12 13:02:25 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int	init_data(t_table *table, int argc, char **argv)
 		return (1);
 	if (create_threads(table))
 		return (1);
-	assign_start(table);
 	assign_forks(table);
 	return (0);
 }
