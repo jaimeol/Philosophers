@@ -6,14 +6,14 @@
 #    By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 18:02:03 by jolivare          #+#    #+#              #
-#    Updated: 2024/07/15 16:22:24 by jolivare         ###   ########.fr        #
+#    Updated: 2024/07/18 11:34:08 by jolivare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 
 SOURCES = src/main.c src/actions.c src/args.c src/dead.c src/create_threads.c src/routine.c  src/clean.c\
-			utils/ft_atoi.c utils/print_action.c utils/time.c
+			utils/ft_atoi.c utils/print_action.c utils/time.c utils/parse.c
 
 OBJECTS = $(SOURCES:.c=.o)
 

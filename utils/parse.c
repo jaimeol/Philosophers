@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/01 12:15:44 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/18 11:29:04 by jolivare         ###   ########.fr       */
+/*   Created: 2024/07/18 11:30:12 by jolivare          #+#    #+#             */
+/*   Updated: 2024/07/18 11:34:42 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../src/philosophers.h"
 
-long int	ft_atoi(const char *str)
+int	is_valid_number(char *str)
 {
-	int		sign;
-	size_t	res;
-	size_t	i;
+	int	i;
+	int	sign;
 
-	sign = 1;
-	res = 0;
 	i = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
+	sign = 0;
 	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[i] == '-')
-			sign *= -1;
+		sign = 1;
 		i++;
 	}
+	if (str[i] < '0' || str[i] > '9')
+		return (1);
 	while (str[i])
 	{
-		res = (res + str[i] - '0') * 10;
+		if (str[i] < '0' || str[i] > '9')
+			return (1);
 		i++;
 	}
-	res = (res / 10) * sign;
-	return (res);
+	if (sign && (str[i - 1] == '-' || str[i - 1] == '+'))
+		return (1);
+	return (0);
 }

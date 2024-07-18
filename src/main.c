@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:06:19 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/17 10:28:20 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/18 11:37:20 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,9 @@ int	main(int argc, char **argv)
 	if (argc != 5 && argc != 6)
 		return (arg_error());
 	if (init_data(&table, argc, argv))
-	{
-		printf("Error en init_data\n");
 		return (1);
-	}
 	if (init_threads(&table))
-	{
-		printf("Error en init_threads\n");
 		return (1);
-	}
 	wait_threads(&table);
 	free_data(&table);
 	return (0);
