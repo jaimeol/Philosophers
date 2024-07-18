@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:39:11 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/17 16:43:04 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/18 12:31:38 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	print_action(t_philo *philo, t_action action)
 		printf("%ld %d is thinking\n", moment, philo->id);
 	else if (action == FORK && !is_dead(philo))
 		printf("%ld %d has taken a fork\n", moment, philo->id);
-	else if (action  == DEAD)
+	else if (action == DEAD)
 		printf("\033[0;31m%ld %d died\033[0m\n", moment, philo->id);
 	pthread_mutex_unlock(&philo->table->print_mutex);
 }

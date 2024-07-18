@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 16:17:53 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/17 11:21:00 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/18 12:27:28 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	free_data(t_table *table)
 	free(table->philos);
 	delete_mutex(table);
 }
+
 size_t	wait_min(t_philo *philo)
 {
 	size_t	time;

@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 17:29:13 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/17 12:30:14 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/18 12:26:40 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,7 @@ int	eat(t_philo *philo)
 		return (1);
 	}
 	philo->last_meal = get_moment();
-	pthread_mutex_lock(&philo->internal_mutex);
-	philo->eat_count++;
-	pthread_mutex_unlock(&philo->internal_mutex);
+	increase_eat_count(philo);
 	unlock_forks(philo->left_fork, philo->right_fork);
 	return (0);
 }

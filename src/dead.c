@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 12:52:01 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/17 16:22:31 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/18 12:29:27 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int	dead(t_philo *philo)
 
 int	dead_control(t_table *table, int i)
 {
-	int dead;
+	int	dead;
+
 	pthread_mutex_lock(&table->philos[i].internal_mutex);
 	dead = table->philos[i].dead;
 	pthread_mutex_unlock(&table->philos[i].internal_mutex);
@@ -50,7 +51,7 @@ void	set_end(t_table *table)
 	pthread_mutex_unlock(&table->monitor_mutex);
 }
 
-int	all_meals_done(int	meals, t_table *table)
+int	all_meals_done(int meals, t_table *table)
 {
 	return (meals == table->philo_number);
 }

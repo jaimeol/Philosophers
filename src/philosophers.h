@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:06:48 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/18 11:30:59 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/18 12:30:38 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ typedef enum s_action
 	THINKING,
 	FORK,
 	DEAD
-} t_action;
+}	t_action;
 
-typedef struct s_table t_table;
+typedef struct s_table	t_table;
 
 typedef struct s_philo
 {
@@ -43,7 +43,7 @@ typedef struct s_philo
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*right_fork;
 	t_table			*table;
-} t_philo;
+}	t_philo;
 
 struct s_table
 {
@@ -97,7 +97,8 @@ int			dead_control(t_table *table, int i);
 int			is_dead(t_philo *philo);
 void		set_end(t_table *table);
 int			meals_completed(t_philo *philo);
-int			all_meals_done(int	meals, t_table *table);
+int			all_meals_done(int meals, t_table *table);
+void		increase_eat_count(t_philo *philo);
 
 int			is_valid_number(char *str);
 long int	ft_atoi(const char *str);
