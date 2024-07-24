@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:06:48 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/18 12:30:38 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/19 11:54:29 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ struct s_table
 	int				start;	
 	pthread_mutex_t	monitor_mutex;
 	pthread_mutex_t	print_mutex;
-	pthread_mutex_t	start_mutex;
 	t_philo			*philos;
 	pthread_t		monitor;
 };
@@ -101,6 +100,6 @@ int			all_meals_done(int meals, t_table *table);
 void		increase_eat_count(t_philo *philo);
 
 int			is_valid_number(char *str);
-long int	ft_atoi(const char *str);
+size_t		ft_atoi(const char *str);
 
 #endif

@@ -6,13 +6,12 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 12:15:44 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/18 11:29:04 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/18 16:02:01 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../src/philosophers.h"
-
-long int	ft_atoi(const char *str)
+size_t	ft_atoi(const char *str)
 {
 	int		sign;
 	size_t	res;

@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:06:19 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/18 12:30:06 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/19 11:55:08 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,20 @@ int	arg_error(void)
 	return (1);
 }
 
-void	wait_start(t_table *table)
-{
-	int	start;
+// void	wait_start(t_table *table)
+// {
+// 	int	start;
 
-	start = 0;
-	while (1)
-	{
-		pthread_mutex_lock(&table->start_mutex);
-		start = table->start;
-		pthread_mutex_lock(&table->start_mutex);
-		if (start)
-			break ;
-	}
-}
+// 	start = 0;
+// 	while (1)
+// 	{
+// 		pthread_mutex_lock(&table->start_mutex);
+// 		start = table->start;
+// 		pthread_mutex_lock(&table->start_mutex);
+// 		if (start)
+// 			break ;
+// 	}
+// }
 
 int	main(int argc, char **argv)
 {
