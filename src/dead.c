@@ -6,11 +6,11 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 12:52:01 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/18 12:29:27 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/24 16:29:53 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "../inc/philosophers.h"
 
 int	dead(t_philo *philo)
 {

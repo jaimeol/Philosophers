@@ -6,11 +6,11 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 17:29:13 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/18 12:26:40 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/24 16:29:53 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "../inc/philosophers.h"
 
 void	unlock_forks(pthread_mutex_t *first, pthread_mutex_t *second)
 {

@@ -6,11 +6,11 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 12:09:37 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/18 11:42:34 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/07/24 16:29:53 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "../inc/philosophers.h"
 
 int	read_args(t_table *table, int argc, char **argv)
 {

@@ -6,7 +6,7 @@
 #    By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 18:02:03 by jolivare          #+#    #+#              #
-#    Updated: 2024/07/18 11:34:08 by jolivare         ###   ########.fr        #
+#    Updated: 2024/09/19 10:54:35 by jolivare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,6 @@ clean:
 
 fclean: clean
 	$(REMOVE) $(NAME)
-#	@echo "All files removed"
 
 re: fclean all
 
