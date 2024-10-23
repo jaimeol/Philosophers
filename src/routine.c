@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 15:34:00 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/24 16:29:53 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:59:04 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	*monitor_action(void *arg)
 		while (flag && ++i < table->philo_number)
 		{
 			satisfied += meals_completed(&table->philos[i]);
-			if (dead_control(table, i) || dead(&table->philos[i]))
+			if (dead_control(table, i) == 1 || dead(&table->philos[i]) == 1)
 			{
 				print_action(&table->philos[i], DEAD);
 				set_end(table);

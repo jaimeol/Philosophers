@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 12:52:01 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/24 16:29:53 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/10/01 16:55:35 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 int	dead(t_philo *philo)
 {
+	pthread_mutex_lock(&philo->internal_mutex);
 	if (get_moment() - philo->last_meal >= philo->table->time_to_die)
 	{
-		pthread_mutex_lock(&philo->internal_mutex);
 		philo->dead = 1;
 		pthread_mutex_unlock(&philo->internal_mutex);
 		return (1);
 	}
+	pthread_mutex_unlock(&philo->internal_mutex);
 	return (0);
 }
 
@@ -28,6 +29,7 @@ int	dead_control(t_table *table, int i)
 {
 	int	dead;
 
+	i = 0;
 	pthread_mutex_lock(&table->philos[i].internal_mutex);
 	dead = table->philos[i].dead;
 	pthread_mutex_unlock(&table->philos[i].internal_mutex);

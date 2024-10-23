@@ -1,33 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   flag_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/18 11:30:12 by jolivare          #+#    #+#             */
-/*   Updated: 2024/10/04 16:10:59 by jolivare         ###   ########.fr       */
+/*   Created: 2024/09/24 12:45:24 by jolivare          #+#    #+#             */
+/*   Updated: 2024/10/18 16:21:34 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../src/philosophers.h"
+#include "../inc/minishell.h"
 
-int	is_valid_number(char *str)
+void	check_here_doc(t_mini *mini)
 {
-	int	i;
-
-	i = 0;
-	if (str[i] == '-')
-		return (1);
-	if (str[i] < '0' || str[i] > '9')
-		return (1);
-	while (str[i])
+	if (mini->here_doc == 1)
 	{
-		if (str[i] < '0' || str[i] > '9')
-			return (1);
-		i++;
+		unlink("here_doc");
+		mini->here_doc = 0;
 	}
-	if (str[i - 1] == '+')
+}
+
+int	check_infile(int infile)
+{
+	if (infile < 0)
+	{
+		perror("Error:");
 		return (1);
+	}
+	return (0);
+}
+
+int	check_outfile(int outfile)
+{
+	if (outfile < 0)
+	{
+		perror("Error:");
+		return (1);
+	}
+	return (0);
+}
+
+int	check_echo_next_pos(char **str, int i)
+{
+	if (!str[i + 1])
+	{
+		printf("\n");
+		return (1);
+	}
 	return (0);
 }

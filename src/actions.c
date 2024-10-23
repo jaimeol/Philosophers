@@ -6,7 +6,7 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 17:29:13 by jolivare          #+#    #+#             */
-/*   Updated: 2024/07/24 16:29:53 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:49:39 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	eat(t_philo *philo)
 	print_action(philo, FORK);
 	print_action(philo, EATING);
 	ft_usleep(philo->table->time_to_eat);
-	if (is_dead(philo))
+	if (dead(philo))
 	{
 		unlock_forks(philo->left_fork, philo->right_fork);
 		return (1);
