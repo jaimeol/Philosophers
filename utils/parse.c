@@ -6,11 +6,11 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 11:30:12 by jolivare          #+#    #+#             */
-/*   Updated: 2024/10/04 16:10:59 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/10/23 13:32:40 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../src/philosophers.h"
+#include "../inc/philosophers.h"
 
 int	is_valid_number(char *str)
 {

@@ -6,11 +6,11 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:08:37 by jolivare          #+#    #+#             */
-/*   Updated: 2024/09/30 16:58:00 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/10/23 13:32:49 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../src/philosophers.h"
+#include "../inc/philosophers.h"
 
 size_t	get_time_diff(struct timeval start, struct timeval end)
 {

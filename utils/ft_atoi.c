@@ -6,11 +6,11 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 12:15:44 by jolivare          #+#    #+#             */
-/*   Updated: 2024/09/19 10:56:21 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/10/23 13:32:33 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../src/philosophers.h"
+#include "../inc/philosophers.h"
 
 size_t	ft_atoi(const char *str)
 {
